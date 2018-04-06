@@ -46,8 +46,8 @@
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.16.1",
-    "jquery": "^2.2.3",
     "jsdom": "^9.0.0",
+    "jquery": "^3.3.1",
     "mocha": "^2.4.5",
     "node-sass": "^3.7.0",
     "react-addons-test-utils": "^15.0.2",
@@ -65,6 +65,8 @@
     "react-dom": "^15.0.2",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.2",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1"
   }
 }

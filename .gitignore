@@ -3,3 +3,5 @@
 .DS_Store
 bundle.js
 npm-debug.log
+
+/database/variant_results.tsv
