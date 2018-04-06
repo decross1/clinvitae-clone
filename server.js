@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use(express.static('./'));
@@ -12,4 +13,5 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log('app listening on', port);
+  console.log('where is this being output');
 });
