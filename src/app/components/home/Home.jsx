@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import SearchExampleStandardCustom from './SearchCustomized';
 
-function Home() {
-  return (
-    <div className="container home">
-      <h1>Home</h1>
-    </div>
-  );
+class Home extends Component {
+
+  render() {
+    return (
+      <div className="container home">
+        <h1>CloneVitae</h1>
+        <SearchExampleStandardCustom />
+      </div>
+    );
+  }
 }
 
 export default Home;
