@@ -5,3 +5,4 @@ bundle.js
 npm-debug.log
 
 /database/variant_results.tsv
+/database/variant_results.csv
