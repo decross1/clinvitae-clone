@@ -1,36 +1,42 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
-import List from './components/List.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-class App extends React.Component {
+// Header and Footer Components
+import Footer from './components/Footer.jsx';
+import Header from './components/Header.jsx';
+
+// Import Routes
+import Home from './components/Home/Home.jsx';
+
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      data: []
     }
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
   }
 
   render () {
-    return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
+    return (
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    )
   }
-}
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));

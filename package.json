@@ -18,12 +18,19 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "css-loader": "^0.28.11",
     "express": "^4.15.0",
+    "file-loader": "^1.1.11",
     "jquery": "^3.1.1",
     "mysql": "^2.13.0",
     "pg": "^7.4.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "semantic-ui-react": "^0.79.1"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1"
   }
 }

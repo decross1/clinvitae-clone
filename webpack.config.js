@@ -17,7 +17,21 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
        }
-      }
+      }, 
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },
+      { test: /\.less$/, loader: 'style-loader!css-loader?importLoaders=2&sourceMap&localIdentName=[local]__[hash:base64:5]!less-loader' },
+      { test: /\.css/, loader: 'style-loader!css-loader?importLoaders=2&sourceMap&localIdentName=[local]__[hash:base64:5]' },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
     ]
   }
 };
