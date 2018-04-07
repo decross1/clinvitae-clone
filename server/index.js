@@ -1,16 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const db = require('./database/index');
-const app = express();
+var express = require('express');
+var bodyParser = require('body-parser');
+var items = require('../database');
 
-app.use(express.static('./'));
-app.use(express.static('dist'));
+var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/dist/index.html`);
-});
+app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/variants', (req, res) => {
   db.getData()
@@ -21,6 +16,7 @@ app.get('/variants', (req, res) => {
       console.log('Get Data Error', err);
     })
 })
+
 
 const port = process.env.PORT || 3000;
 

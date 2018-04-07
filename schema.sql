@@ -5,8 +5,7 @@ CREATE DATABASE clinvitae;
 
 DROP TABLE IF EXISTS invariants;
 
-CREATE TABLE invariants
-(
+CREATE TABLE invariants (
   VariantID serial NOT NULL,
   Gene varchar(45) DEFAULT NULL,
   NucleotideChange varchar(1000) DEFAULT NULL,
