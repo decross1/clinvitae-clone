@@ -25,7 +25,7 @@ class Header extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu fixed='top' fitted size='large' inverted>
+      <Menu fixed='top' fitted size='large' inverted color='teal'>
         <Container>
           <Menu.Item
             as={NavLink}

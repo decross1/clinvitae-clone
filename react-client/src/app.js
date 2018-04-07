@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,7 +10,7 @@ import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 
 // Import Routes
-import Home from './components/Home/Home.jsx';
+import Home  from './components/Home/Home.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +30,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/home' component={Home} />
           </Switch>
           <Footer />
         </div>
@@ -39,4 +39,5 @@ class App extends Component {
   }
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
+
