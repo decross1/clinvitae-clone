@@ -19,10 +19,12 @@ pool.query('SELECT NOW()', (err, res) => {
   console.log('Database Pool Connected');
 });
 
-const getData = () => {
+const getData = (geneName) => {
   return new Promise((resolve, reject) => {
     pool.query(
-      'select * from invariants', (err, res) => {
+      `select distinct(Gene) as title from invariants
+       where Gene like '%${geneName.toUpperCase()}%'
+       limit 6`, (err, res) => {
         if (err) {
           console.log('GetData err', err);
           reject(err);

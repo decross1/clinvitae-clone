@@ -19,11 +19,6 @@ class StandardSearch extends Component {
     this.resetComponent = this.resetComponent.bind(this);
     this.handleResultSelect = this.handleResultSelect.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.loadData = this.loadData.bind(this);
-  }
-
-  componentDidMount() {
-    this.loadData();
   }
 
   componentWillMount() {
@@ -35,25 +30,30 @@ class StandardSearch extends Component {
   }
 
   handleResultSelect(e, { result }) {
-    this.setState({ value: result.title })
+    this.setState({ value: result.gene })
   }
 
   handleSearchChange(e, { value }) {
-    this.setState({ isLoading: true, value })
-  }
-
-  loadData() {
-    axios.get('./variants')
-    .then(data => this.setState({
-      results: data
-    }))
-    .catch(err => {
-      console.log('Error retrieving data', err);
+    this.setState({ isLoading: true, value }, () => {
+      
+      let params = { geneName: this.state.value };
+  
+      if (this.state.value.length >= 2) {
+        axios.post('./variants', params )
+        .then(results => {
+          this.setState({
+          source: results.data
+        })
+      })
+        .catch(err => {
+          console.log('Error Retrieving Data', err)
+        })
+      }
     })
   }
 
   render() {
-    const { isLoading, value, results } = this.state
+    const { isLoading, value, results, source } = this.state
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()
@@ -63,7 +63,7 @@ class StandardSearch extends Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch),
+        results: _.filter(this.state.source, isMatch),
       })
     }, 300)
 
@@ -73,9 +73,8 @@ class StandardSearch extends Component {
         aligned='right'
         onResultSelect={this.handleResultSelect}
         onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
-        results={results}
+        results={this.state.results}
         value={value}
-        {...this.props}
       />
     )
   }

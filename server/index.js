@@ -7,8 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.get('/variants', (req, res) => {
-  db.getData()
+app.post('/variants', (req, res) => {
+  db.getData(req.body.geneName)
     .then(results => {
       res.json(results);
     })

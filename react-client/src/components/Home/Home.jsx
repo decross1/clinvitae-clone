@@ -12,7 +12,7 @@ class Home extends Component {
 
   render() {
     return (
-      <Grid verticalAlign='middle' padded columns={5} centered style={{ minHeight: 550}}>
+      <Grid verticalAlign='middle' padded columns={5} centered style={{ minHeight: 600}}>
         <Grid.Row style={{
           backgroundImage: `url('https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/source.gif')`, 
           backgroundSize: 1300, 
