@@ -1,14 +1,15 @@
 import _ from 'lodash'
-import faker from 'faker'
+import axios from 'axios';
+// import faker from 'faker'
 import React, { Component } from 'react'
 import { Search, Grid, Header } from 'semantic-ui-react'
 
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))
+// const source = _.times(5, () => ({
+//   title: faker.company.companyName(),
+//   description: faker.company.catchPhrase(),
+//   image: faker.internet.avatar(),
+//   price: faker.finance.amount(0, 100, 2, '$'),
+// }))
 
 class StandardSearch extends Component {
   constructor() {
@@ -18,7 +19,13 @@ class StandardSearch extends Component {
     this.resetComponent = this.resetComponent.bind(this);
     this.handleResultSelect = this.handleResultSelect.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.loadData = this.loadData.bind(this);
   }
+
+  componentDidMount() {
+    this.loadData();
+  }
+
   componentWillMount() {
     this.resetComponent()
   }
@@ -33,6 +40,16 @@ class StandardSearch extends Component {
 
   handleSearchChange(e, { value }) {
     this.setState({ isLoading: true, value })
+  }
+
+  loadData() {
+    axios.get('./variants')
+    .then(data => this.setState({
+      results: data
+    }))
+    .catch(err => {
+      console.log('Error retrieving data', err);
+    })
   }
 
   render() {
