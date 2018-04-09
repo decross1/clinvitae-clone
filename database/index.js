@@ -40,7 +40,8 @@ const findVariants = (geneName) => {
   return new Promise((resolve, reject) => {
     pool.query(
       `select * from invariants
-       where Gene like '${geneName.toUpperCase()}'`, (err, res) => {
+       where Gene like '${geneName.toUpperCase()}'
+       order by nucleotidechange desc`, (err, res) => {
         if (err) {
           console.log('GetData err', err);
           reject(err);
