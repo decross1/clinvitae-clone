@@ -17,6 +17,15 @@ app.post('/variants', (req, res) => {
     })
 })
 
+app.post('/geneSearch', (req, res) => {
+  db.findVariants(req.body.geneName)
+  .then(results => {
+    res.json(results);
+  })
+  .catch(err => {
+    console.log('Gene Search Error', err);
+  })
+})
 
 const port = process.env.PORT || 3000;
 

@@ -15,22 +15,30 @@ import Home  from './components/Home/Home.jsx';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      data: []
+    this.state = {
+      geneVariants: []
     }
+
+    this.findVariants = this.findVariants.bind(this);
   }
 
-  componentDidMount() {
+  findVariants(geneList) {
+    this.setState({
+      geneVariants: geneList.data
+    }, () => {
+      console.log(this.state);
+    })
   }
-
+  
   render () {
     return (
       <Router>
         <div>
           <Header />
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/' render={routeProps => <Home {...routeProps}  findVariants={this.findVariants}/>} />
+            <Route exact path='/home' render={routeProps => <Home {...routeProps} findVariants={this.findVariants} />} />
+            <Route exact path='/gene' render={routeProps => <GenePage {...routeProps} geneVariants={this.state.geneVariants} />} />
           </Switch>
           <Footer />
         </div>

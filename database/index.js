@@ -36,7 +36,24 @@ const getData = (geneName) => {
   });
 };
 
+const findVariants = (geneName) => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `select * from invariants
+       where Gene like '${geneName.toUpperCase()}'`, (err, res) => {
+        if (err) {
+          console.log('GetData err', err);
+          reject(err);
+        }
+        console.log('Query success');
+        resolve(res.rows);
+      }
+    );
+  });
+};
+
 module.exports = {
   pool,
   getData,
+  findVariants
 };
