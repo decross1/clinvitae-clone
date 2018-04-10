@@ -28,14 +28,11 @@
 
 Install the necessary dependencies from [Installing Dependencies](#installing-dependencies)
 
-Install heroku with npm installer:
-$ npm install -g heroku-cli
+Start Webpack:
+$ run npm start
 
-Start webpack:
-$ npm run react-dev
-
-Run Heroku local:
-$ heroku local
+Start Server
+$ run npm server
   
 open your browser, and write the following url:
 http://localhost:3000/
