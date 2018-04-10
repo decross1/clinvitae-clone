@@ -1,5 +1,4 @@
-# Project Name
-CLoneVitae
+# Project: CLoneVitae
 
 ## Contributor
   - Derrick Cross
