@@ -20,13 +20,12 @@ class StandardSearch extends Component {
       axios.post('/geneSearch', params ) 
       .then(results => {
         this.props.findVariants(results);
+        this.props.history.push('/Genes');
       })
       .catch(err => {
         console.log('Error Finding Gene Variants', err);
       })
     })
-
-    // this.props.history.push('/Genes');
   }
 
   handleSearchChange(e, { value }) {

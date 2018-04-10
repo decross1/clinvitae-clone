@@ -29,7 +29,7 @@ const getData = (geneName) => {
           console.log('GetData err', err);
           reject(err);
         }
-        console.log('Query success');
+        console.log('getData Query success');
         resolve(res.rows);
       }
     );
@@ -43,10 +43,10 @@ const findVariants = (geneName) => {
        where Gene like '${geneName.toUpperCase()}'
        order by nucleotidechange desc`, (err, res) => {
         if (err) {
-          console.log('GetData err', err);
+          console.log('Find Variant err', err);
           reject(err);
         }
-        console.log('Query success');
+        console.log('Variant Query success');
         resolve(res.rows);
       }
     );

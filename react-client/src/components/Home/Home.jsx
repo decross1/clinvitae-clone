@@ -12,7 +12,7 @@ class Home extends Component {
 
   render() {
     return (
-      <Grid verticalAlign='middle' padded columns={5} centered style={{ minHeight: 600}}>
+      <Grid verticalAlign='middle' padded columns={5} centered style={{ minHeight: 550}}>
         <Grid.Row style={{
           backgroundImage: `url('https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/source.gif')`, 
           backgroundSize: 1300, 
@@ -20,7 +20,7 @@ class Home extends Component {
           filter: `alpha(opacity = 80)`}}>
           <Grid.Column width={2}></Grid.Column>
           <Grid.Column verticalAlign='top'>
-            <Header as='h1' inverted color='orange' style={{fontSize: 32}}>
+            <Header as='h1' color='yellow' style={{fontSize: 32}}>
                 Search for Genes
             </Header>
             <StandardSearch history={this.props.history} findVariants={this.props.findVariants} />

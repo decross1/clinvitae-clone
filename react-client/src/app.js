@@ -11,6 +11,7 @@ import Header from './components/Header.jsx';
 
 // Import Routes
 import Home  from './components/Home/Home.jsx';
+import GeneTable from './components/GenePage/GenePage.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={routeProps => <Home {...routeProps}  findVariants={this.findVariants}/>} />
             <Route exact path='/home' render={routeProps => <Home {...routeProps} findVariants={this.findVariants} />} />
-            <Route exact path='/gene' render={routeProps => <GenePage {...routeProps} geneVariants={this.state.geneVariants} />} />
+            <Route exact ='/gene' render={routeProps => <GeneTable {...routeProps} geneVariants={this.state.geneVariants} />} />
           </Switch>
           <Footer />
         </div>

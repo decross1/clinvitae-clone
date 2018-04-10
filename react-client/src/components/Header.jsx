@@ -36,21 +36,21 @@ class Header extends Component {
             Home
           </Menu.Item>
 
-          <Menu.Item
+          {/* <Menu.Item
             as={NavLink}
             name='About'
             active={activeItem === 'About'}
             onClick={this.handleItemClick}
             to='/about'>
             About
-          </Menu.Item>
+          </Menu.Item> */}
 
           <Menu.Menu position='right'>
             <Menu.Item
               as={NavLink}
               active={activeItem === 'Genes'}
               onClick={this.handleItemClick}
-              to='/Genes'>
+              to='/genes'>
               Genes
             </Menu.Item>
           </Menu.Menu>
