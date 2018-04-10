@@ -47,6 +47,8 @@ If you have any more questions, email Derrick at decross1@gmail.com
 Navigate to directory database/index.js
 Change user to 'postgres'
 Navigate to root directory in terminal
+download dataset from http://clinvitae.invitae.com/download
+run tsvConversion.R
 run command psql -d template -a -f schema.sql
 ```
 
